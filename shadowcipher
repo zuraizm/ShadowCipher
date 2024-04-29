@@ -1,0 +1,53 @@
+#!/usr/bin/env python3
+
+from stegano import lsb
+import tkinter as tk
+from tkinter import filedialog, simpledialog
+
+def hide_text_in_image():
+    root = tk.Tk()
+    root.withdraw()
+
+    image_path = filedialog.askopenfilename(title="Select an image file", filetypes=[("Image files", "*.png *.jpg *.jpeg")])
+    text = simpledialog.askstring(title="Enter the secret message", prompt="Enter the secret message:")
+
+    if image_path and text:
+        output_path = "/home/kali/Desktop/steg.png"
+        secret = lsb.hide(image_path, text)
+        secret.save(output_path, format="PNG")  # Specify the format here
+        print(f"The secret message has been hidden in the image: {output_path}")
+    else:
+        print("Please provide both an image and a secret message.")
+
+def extract_hidden_text_from_image():
+    root = tk.Tk()
+    root.withdraw()
+
+    image_path = filedialog.askopenfilename(title="Select the stego image file", filetypes=[("Image files", "*.png")])
+    if not image_path:
+        print("No image selected.")
+        return
+
+    try:
+        # Extract hidden text
+        secret = lsb.reveal(image_path)
+        print("Extracted secret message:")
+        print(secret)
+    except IndexError:
+        print("No hidden message found in the image.")
+
+def main():
+    root = tk.Tk()
+    root.withdraw()
+
+    choice = simpledialog.askinteger(title="Select an option", prompt="Choose an option:\n1. Hide text in image\n2. Extract hidden text from image")
+
+    if choice == 1:
+        hide_text_in_image()
+    elif choice == 2:
+        extract_hidden_text_from_image()
+    else:
+        print("Invalid option.")
+
+if __name__ == "__main__":
+    main()
