@@ -1,0 +1,6 @@
+# Installation
+Clone the repository or download the source code.
+Install the required libraries using pip: pip install stegano
+# Usage
+Run the tool using Python: python3 shadowcipher
+Follow the on-screen instructions to hide or extract text from images.
