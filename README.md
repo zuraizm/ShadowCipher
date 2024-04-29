@@ -1,7 +1,7 @@
 # ShadowCipher
 Steganography Image Tool :This Python-based tool allows users to perform steganography on images using the Least Significant Bit (LSB) method. The tool provides a simple and intuitive graphical user interface (GUI) for hiding text in images and extracting hidden text from images.
 Features
-Hide text in images: Users can select an image file (PNG, JPG, or JPEG) and enter a secret message to be hidden within the image. The tool will save the modified image with the hidden message.
+Hide text in images: Users can select an image file (PNG) and enter a secret message to be hidden within the image. The tool will save the modified image with the hidden message.
 Extract hidden text from images: Users can select an image file (PNG) containing a hidden message, and the tool will extract and display the secret message.
 User-friendly GUI: The tool provides a simple and intuitive GUI for both hiding and extracting text from images.
 Requirements
